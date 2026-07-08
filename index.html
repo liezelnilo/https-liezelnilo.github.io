@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -352,8 +351,11 @@
       animation: slideUp 1.2s ease both;
     }
 
+    /* ===== FIXED: photo-frame no longer forces a crop/zoom.
+       Reduced max width so the portrait can't blow up huge,
+       and object-fit: contain keeps the whole photo visible. ===== */
     .photo-frame {
-      width: min(410px, 100%);
+      width: min(320px, 100%);
       padding: 18px;
       border-radius: 36px;
       background: linear-gradient(145deg, rgba(198,179,154,0.5), rgba(109,58,60,0.16));
@@ -377,8 +379,9 @@
       width: 100%;
       display: block;
       border-radius: 28px;
-      object-fit: cover;
+      object-fit: contain;
       aspect-ratio: 4 / 5;
+      background: var(--bg-soft);
       filter: saturate(1.02) contrast(1.02);
     }
 
@@ -520,12 +523,16 @@
       overflow: hidden;
     }
 
+    /* ===== FIXED: project preview images no longer zoom/crop.
+       object-fit: contain fits the image to the box by width/height
+       without cropping; background fills any leftover space. ===== */
     .project-visual img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      background: var(--bg-soft);
       border-radius: 18px;
     }
 
@@ -864,6 +871,7 @@
       }
     }
   </style>
+
 </head>
 <body>
   <div class="page-wipe"></div>
@@ -873,14 +881,15 @@
     <div class="nav">
       <div class="brand">Lizzy's Portfolio</div>
 
-      <div class="nav-right">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <button class="toggle-btn" id="themeToggle">Dark / Light</button>
-      </div>
-    </div>
+  <div class="nav-right">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <button class="toggle-btn" id="themeToggle">Dark / Light</button>
+  </div>
+</div>
+
   </header>
 
   <main>
@@ -888,208 +897,209 @@
       <div class="hero-left">
         <span class="eyebrow">Portfolio of Liezel Antenor Nilo</span>
 
-        <h1>Hello, I'm Lizzy</h1>
+    <h1>Hello, I'm Lizzy</h1>
 
-        <div class="typed-wrap">
-          <span id="typed-text"></span><span class="cursor"></span>
-        </div>
+    <div class="typed-wrap">
+      <span id="typed-text"></span><span class="cursor"></span>
+    </div>
 
+    <p>
+      Motivated IT graduate with skills in hardware troubleshooting, software support,
+      graphic design, multimedia content creation, and creative visual communication.
+      I enjoy blending technical knowledge with design thinking to build work that is
+      both functional and visually engaging.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#projects" class="btn btn-primary">View My Projects</a>
+      <a href="#contact" class="btn btn-secondary">Contact Me</a>
+    </div>
+
+    <div class="mini-info">
+      <div class="mini-card">
+        <h4>Location</h4>
+        <p>Batangas City, Philippines</p>
+      </div>
+      <div class="mini-card">
+        <h4>Email</h4>
+        <p>liezelnilooo@gmail.com</p>
+      </div>
+      <div class="mini-card">
+        <h4>Focus</h4>
+        <p>IT Support, Design, Multimedia</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="photo-frame">
+      <img src="images/liezel.jpg" alt="Portrait of Liezel Antenor Nilo" />
+    </div>
+  </div>
+</section>
+
+<section id="about" class="reveal">
+  <h2 class="section-title">About Me</h2>
+  <p class="section-lead">
+    I am a Bachelor of Science in Information Technology graduate from STI College Batangas
+    with internship experience in the City Government of Batangas - City Mayor's Office,
+    Information Technology Service Division. My background combines technical support,
+    administrative assistance, multimedia work, and creative design output.
+  </p>
+
+  <div class="about-grid">
+    <div class="card">
+      <h3>Profile</h3>
+      <p>
+        I am eager to contribute to a collaborative workplace where I can continue developing
+        my skills in IT, design, and digital production. I value teamwork, active listening,
+        and producing outputs that are clear, organized, and effective.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Education & Experience</h3>
+
+      <div class="timeline-item">
+        <h4>STI College Batangas</h4>
+        <span>2022 - 2026</span>
+        <p>Bachelor of Science in Information Technology</p>
+      </div>
+
+      <div class="timeline-item">
+        <h4>Lyceum of the Philippines University</h4>
+        <span>2019 - 2022</span>
+        <p>Humanities and Social Science</p>
+      </div>
+
+      <div class="timeline-item">
+        <h4>City Government of Batangas - IT Service Division</h4>
+        <span>February 2026 - May 2026</span>
         <p>
-          Motivated IT graduate with skills in hardware troubleshooting, software support,
-          graphic design, multimedia content creation, and creative visual communication.
-          I enjoy blending technical knowledge with design thinking to build work that is
-          both functional and visually engaging.
+          IT Intern handling onboarding IDs, staff inquiries, resource management,
+          troubleshooting system components and printers, and multimedia-related tasks.
         </p>
-
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">View My Projects</a>
-          <a href="#contact" class="btn btn-secondary">Contact Me</a>
-        </div>
-
-        <div class="mini-info">
-          <div class="mini-card">
-            <h4>Location</h4>
-            <p>Batangas City, Philippines</p>
-          </div>
-          <div class="mini-card">
-            <h4>Email</h4>
-            <p>liezelnilooo@gmail.com</p>
-          </div>
-          <div class="mini-card">
-            <h4>Focus</h4>
-            <p>IT Support, Design, Multimedia</p>
-          </div>
-        </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="hero-right">
-        <div class="photo-frame">
-          <img src="images/liezel.jpg" alt="Portrait of Liezel Antenor Nilo" />
-        </div>
+<section id="skills" class="reveal">
+  <h2 class="section-title">Skills & Strengths</h2>
+  <p class="section-lead">
+    My skill set reflects both technical foundations and creative execution, allowing me
+    to support users, solve problems, and design visually appealing outputs.
+  </p>
+
+  <div class="skills-grid">
+    <div class="card">
+      <h3>Technical Skills</h3>
+      <div class="skill-tags">
+        <span class="tag">Microsoft Office</span>
+        <span class="tag">Word</span>
+        <span class="tag">Excel</span>
+        <span class="tag">PowerPoint</span>
+        <span class="tag">SAP S/4 HANA</span>
+        <span class="tag">Graphic Designing</span>
+        <span class="tag">Visual Design Principles</span>
+        <span class="tag">AI & Machine Learning</span>
+        <span class="tag">Technical Support</span>
+        <span class="tag">Canva</span>
+        <span class="tag">Adobe Animate</span>
+        <span class="tag">Hardware Troubleshooting</span>
       </div>
-    </section>
+    </div>
 
-    <section id="about" class="reveal">
-      <h2 class="section-title">About Me</h2>
-      <p class="section-lead">
-        I am a Bachelor of Science in Information Technology graduate from STI College Batangas
-        with internship experience in the City Government of Batangas - City Mayor's Office,
-        Information Technology Service Division. My background combines technical support,
-        administrative assistance, multimedia work, and creative design output.
+    <div class="card">
+      <h3>Soft Skills</h3>
+      <div class="skill-tags">
+        <span class="tag">Active Listening</span>
+        <span class="tag">Effective Collaboration</span>
+        <span class="tag">Teamwork</span>
+        <span class="tag">Communication</span>
+        <span class="tag">Adaptability</span>
+        <span class="tag">Creativity</span>
+        <span class="tag">Problem Solving</span>
+        <span class="tag">Organization</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="reveal">
+  <h2 class="section-title">Project Highlights</h2>
+  <p class="section-lead">
+    These selected works represent my experience in layout design, visual communication,
+    and creative output development during my internship and academic work.
+  </p>
+
+  <div class="projects-grid">
+    <div class="project-card card" data-url="https://www.canva.com/design/DAHDhjerzzM/9wdYbMcg2mk-W10fcgzPWw/view?embed">
+      <div class="project-visual">
+        <img src="images/org_chart.png" alt="Organizational Chart preview" />
+        <div class="project-number">01</div>
+      </div>
+      <h3>Organizational Chart</h3>
+      <p>
+        An org chart I made during my OJT, designed to present organizational structure
+        clearly and professionally using balanced visual hierarchy and clean layout.
       </p>
+      <span class="project-link">Open Project</span>
+    </div>
 
-      <div class="about-grid">
-        <div class="card">
-          <h3>Profile</h3>
-          <p>
-            I am eager to contribute to a collaborative workplace where I can continue developing
-            my skills in IT, design, and digital production. I value teamwork, active listening,
-            and producing outputs that are clear, organized, and effective.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Education & Experience</h3>
-
-          <div class="timeline-item">
-            <h4>STI College Batangas</h4>
-            <span>2022 - 2026</span>
-            <p>Bachelor of Science in Information Technology</p>
-          </div>
-
-          <div class="timeline-item">
-            <h4>Lyceum of the Philippines University</h4>
-            <span>2019 - 2022</span>
-            <p>Humanities and Social Science</p>
-          </div>
-
-          <div class="timeline-item">
-            <h4>City Government of Batangas - IT Service Division</h4>
-            <span>February 2026 - May 2026</span>
-            <p>
-              IT Intern handling onboarding IDs, staff inquiries, resource management,
-              troubleshooting system components and printers, and multimedia-related tasks.
-            </p>
-          </div>
-        </div>
+    <div class="project-card card" data-url="https://www.canva.com/design/DAG13zlvwO0/KpGRLklFSnkizN3HfcUB5A/view?embed">
+      <div class="project-visual">
+        <img src="images/storytots.png" alt="Capstone Brochure preview" />
+        <div class="project-number">02</div>
       </div>
-    </section>
-
-    <section id="skills" class="reveal">
-      <h2 class="section-title">Skills & Strengths</h2>
-      <p class="section-lead">
-        My skill set reflects both technical foundations and creative execution, allowing me
-        to support users, solve problems, and design visually appealing outputs.
+      <h3>Capstone Brochure</h3>
+      <p>
+        A brochure created for our capstone project, focusing on informative layout,
+        strong readability, and polished branding presentation.
       </p>
+      <span class="project-link">Open Project</span>
+    </div>
 
-      <div class="skills-grid">
-        <div class="card">
-          <h3>Technical Skills</h3>
-          <div class="skill-tags">
-            <span class="tag">Microsoft Office</span>
-            <span class="tag">Word</span>
-            <span class="tag">Excel</span>
-            <span class="tag">PowerPoint</span>
-            <span class="tag">SAP S/4 HANA</span>
-            <span class="tag">Graphic Designing</span>
-            <span class="tag">Visual Design Principles</span>
-            <span class="tag">AI & Machine Learning</span>
-            <span class="tag">Technical Support</span>
-            <span class="tag">Canva</span>
-            <span class="tag">Adobe Animate</span>
-            <span class="tag">Hardware Troubleshooting</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Soft Skills</h3>
-          <div class="skill-tags">
-            <span class="tag">Active Listening</span>
-            <span class="tag">Effective Collaboration</span>
-            <span class="tag">Teamwork</span>
-            <span class="tag">Communication</span>
-            <span class="tag">Adaptability</span>
-            <span class="tag">Creativity</span>
-            <span class="tag">Problem Solving</span>
-            <span class="tag">Organization</span>
-          </div>
-        </div>
+    <div class="project-card card" data-url="https://www.canva.com/design/DAHDmY5Yw5c/RQZxiam-eWT3lhuBGIDWPg/view?embed">
+      <div class="project-visual">
+        <img src="images/logos_1.png" alt="Logo Collection preview" />
+        <div class="project-number">03</div>
       </div>
-    </section>
-
-    <section id="projects" class="reveal">
-      <h2 class="section-title">Project Highlights</h2>
-      <p class="section-lead">
-        These selected works represent my experience in layout design, visual communication,
-        and creative output development during my internship and academic work.
+      <h3>Logo Collection</h3>
+      <p>
+        A selection of logos I made during my OJT, showing my exploration of identity
+        design, concept styling, and practical branding visuals.
       </p>
+      <span class="project-link">Open Project</span>
+    </div>
+  </div>
+</section>
 
-      <div class="projects-grid">
-        <div class="project-card card" data-url="https://www.canva.com/design/DAHDhjerzzM/9wdYbMcg2mk-W10fcgzPWw/view?embed">
-          <div class="project-visual">
-            <img src="images/org_chart.png" alt="Organizational Chart preview" />
-            <div class="project-number">01</div>
-          </div>
-          <h3>Organizational Chart</h3>
-          <p>
-            An org chart I made during my OJT, designed to present organizational structure
-            clearly and professionally using balanced visual hierarchy and clean layout.
-          </p>
-          <span class="project-link">Open Project</span>
-        </div>
+<section id="contact" class="reveal">
+  <h2 class="section-title">Contact</h2>
+  <p class="section-lead">
+    For internships, entry-level opportunities, creative collaborations, or design-related
+    work, here are my contact details.
+  </p>
 
-        <div class="project-card card" data-url="https://www.canva.com/design/DAG13zlvwO0/KpGRLklFSnkizN3HfcUB5A/view?embed">
-          <div class="project-visual">
-            <img src="images/storytots.png" alt="Capstone Brochure preview" />
-            <div class="project-number">02</div>
-          </div>
-          <h3>Capstone Brochure</h3>
-          <p>
-            A brochure created for our capstone project, focusing on informative layout,
-            strong readability, and polished branding presentation.
-          </p>
-          <span class="project-link">Open Project</span>
-        </div>
+  <div class="contact-grid">
+    <div class="card contact-list">
+      <h3>Get in Touch</h3>
+      <p><strong>Name:</strong> Liezel Antenor Nilo</p>
+      <p><strong>Phone:</strong> (+63) 9763364166</p>
+      <p><strong>Email:</strong> liezelnilooo@gmail.com</p>
+      <p><strong>Address:</strong> San Antonio Village, Gulod Labak, Batangas City</p>
+    </div>
 
-        <div class="project-card card" data-url="https://www.canva.com/design/DAHDmY5Yw5c/RQZxiam-eWT3lhuBGIDWPg/view?embed">
-          <div class="project-visual">
-            <img src="images/logos_1.png" alt="Logo Collection preview" />
-            <div class="project-number">03</div>
-          </div>
-          <h3>Logo Collection</h3>
-          <p>
-            A selection of logos I made during my OJT, showing my exploration of identity
-            design, concept styling, and practical branding visuals.
-          </p>
-          <span class="project-link">Open Project</span>
-        </div>
-      </div>
-    </section>
+    <div class="card">
+      <h3>References</h3>
+      <p><strong>Primo Anonuevo Jr. PhD</strong><br />Faculty Member<br />Phone: (+63) 9917620246</p>
+      <br />
+      <p><strong>Rico C. Cueto, LPT</strong><br />Public Elementary Teacher<br />Phone: (+63) 9914374274</p>
+    </div>
+  </div>
+</section>
 
-    <section id="contact" class="reveal">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-lead">
-        For internships, entry-level opportunities, creative collaborations, or design-related
-        work, here are my contact details.
-      </p>
-
-      <div class="contact-grid">
-        <div class="card contact-list">
-          <h3>Get in Touch</h3>
-          <p><strong>Name:</strong> Liezel Antenor Nilo</p>
-          <p><strong>Phone:</strong> (+63) 9763364166</p>
-          <p><strong>Email:</strong> liezelnilooo@gmail.com</p>
-          <p><strong>Address:</strong> San Antonio Village, Gulod Labak, Batangas City</p>
-        </div>
-
-        <div class="card">
-          <h3>References</h3>
-          <p><strong>Primo Anonuevo Jr. PhD</strong><br />Faculty Member<br />Phone: (+63) 9917620246</p>
-          <br />
-          <p><strong>Rico C. Cueto, LPT</strong><br />Public Elementary Teacher<br />Phone: (+63) 9914374274</p>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
@@ -1097,6 +1107,7 @@
   </footer>
 
   <!-- Lightbox Modal -->
+
   <div class="project-lightbox" id="projectLightbox">
     <div class="lightbox-overlay" id="lightboxOverlay"></div>
     <div class="lightbox-box">
@@ -1243,5 +1254,6 @@
       }
     });
   </script>
+
 </body>
 </html>
